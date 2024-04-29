@@ -1,0 +1,68 @@
+@use "../var" as *;
+@use "../fonts" as *;
+.hero {
+  padding: 60px 0;
+  /* .hero__head-group */
+
+  &__head-group {
+    margin-bottom: 24px;
+  }
+
+  /* .hero__title */
+  &__title {
+    font-family: $second-family;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 0.953rem + 7.74vw, 7.5rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    color: $green;
+  }
+
+  /* .hero__subtitle */
+
+  &__subtitle {
+    font-family: $second-family;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.125rem, 0.699rem + 2.13vw, 2.5rem);
+    line-height: 1.3;
+    text-align: right;
+    color: $dark;
+  }
+
+  /* .hero__group-image */
+
+  &__group-image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* .hero__image */
+
+  &__image {
+    object-fit: cover;
+    width: calc(284 / 1300 * 100%);
+  }
+
+  /* .hero__image-left */
+
+  &__image-left {
+    border-radius: 400px 400px 400px 0;
+  }
+
+  /* .hero__image-center */
+
+  &__image-center {
+    width: calc(680 / 1300 * 100%);
+  }
+
+  /* .hero__image-right */
+
+  &__image-right {
+    border-radius: 400px 0 400px 400px;
+  }
+}
