@@ -1,0 +1,74 @@
+@use "../var" as *;
+
+.filter {
+  padding: 60px 0;
+  /* .filter__container */
+
+  &__container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* .filter__fieldset */
+
+  &__fieldset {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* .filter__fieldset-input */
+
+  &__fieldset-input {
+    position: absolute;
+    appearance: none;
+  }
+
+  /* .filter__fieldset-label */
+
+  &__fieldset-label {
+    min-width: 133px;
+    height: 72px;
+    display: inline-block;
+    border: none;
+    background-color: $white;
+    border-radius: 300px;
+    color: $dark;
+    padding: 24.5px 16px 24.5px 25px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+    &:hover {
+      background-color: $light-orange;
+      color: $white;
+    }
+  }
+
+  &__fieldset-input:focus + &__fieldset-label {
+    background-color: $light-orange;
+    color: $white;
+  }
+
+  &__fieldset-input:checked + &__fieldset-label {
+    background-color: $light-orange;
+    color: $white;
+  }
+
+  /* .filter__buttons */
+  &__buttons {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+
+  &__buttons-bnt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
