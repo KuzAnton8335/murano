@@ -1,19 +1,24 @@
 @use "../var" as *;
+@use "../fonts" as *;
 
 .filter {
   padding: 60px 0;
   /* .filter__container */
 
   &__container {
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 30px;
   }
 
   /* .filter__fieldset */
 
   &__fieldset {
     display: flex;
+    border: 0;
+    margin: 0;
+    padding: 0;
     gap: 12px;
   }
 
@@ -31,6 +36,7 @@
     height: 72px;
     display: inline-block;
     border: none;
+    font-family: $font-family;
     background-color: $white;
     border-radius: 300px;
     color: $dark;
@@ -48,9 +54,9 @@
     }
   }
 
-  &__fieldset-input:focus + &__fieldset-label {
-    background-color: $light-orange;
-    color: $white;
+  &__fieldset-input:focus-visible + &__fieldset-label {
+    outline: 2px solid $orange;
+    outline-offset: 5px;
   }
 
   &__fieldset-input:checked + &__fieldset-label {
@@ -58,17 +64,41 @@
     color: $white;
   }
 
-  /* .filter__buttons */
-  &__buttons {
-    justify-self: end;
-    display: flex;
-    align-items: center;
+  &__fieldset-choices {
     gap: 64px;
   }
 
-  &__buttons-bnt {
+  /* .filter__choices */
+
+  &__choices {
+  }
+
+  /* .filter__select */
+
+  &__select {
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  /* .filter__input-price */
+
+  &__input-price {
+    appearance: none;
+  }
+
+  /* .filter__type-list */
+
+  &__type-list {
+  }
+
+  /* .filter__type-item */
+
+  &__type-item {
+  }
+
+  /* .filter__type-btn */
+
+  &__type-btn {
   }
 }

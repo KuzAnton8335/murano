@@ -44,17 +44,17 @@
           <p class="hero__subtitle">и подарки</p>
         </div>
         <figure class="hero__group-image">
-          <img src="/img/hero-img-1.jpg" alt="Букет цветов в банке. В букете розы и тульпаны"
+          <img src="./img/hero-img-1.jpg" alt="Букет цветов в банке. В букете розы и тульпаны"
             class="hero__image hero__image-left">
           <svg class="hero__image hero__image-center" role="img"
             aria-label="Красивый букет в дизайнерской вазе. Состоящий из цветов белого и розового цветов" width="680"
             height="588" viewBox="0 0 680 588" fill="none" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
+            xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid slice">
             <clippath id="hero">
               <path
                 d="M680 112.187C680 137.954 653.568 161.688 609.146 180.61C653.568 211.682 680 250.658 680 292.973C680 335.869 652.836 375.335 607.304 406.613C652.836 425.66 680 449.692 680 475.813C680 537.649 527.777 587.776 340 587.776C152.223 587.776 0 537.649 0 475.813C0 449.692 27.1636 425.66 72.6961 406.613C27.1636 375.335 0 335.869 0 292.973C0 250.658 26.4319 211.682 70.854 180.61C26.4319 161.688 0 137.954 0 112.187C0 50.3515 152.223 0.223633 340 0.223633C527.777 0.223633 680 50.3515 680 112.187Z" />
             </clippath>
-            <image xlink:href="./img/hero-img-2.jpg" clip-path="url(#hero)" />
+            <image xlink:href="./img/hero-img-2.jpg" clip-path="url(#hero)" preserveAspectRatio="xMidYMid slice" />
           </svg>
 
           <img src="./img/hero-img-3.jpg"
@@ -67,41 +67,157 @@
     <section class="filter">
       <div class="container filter__container">
         <fiedset class="filter__fieldset">
-          <input type="radio" name="flowers" id="item1" class="filter__fieldset-input">
-          <label class="filter__fieldset-label filter__fieldset-label-img filter__fieldset-label-img1" for="item1">
+          <input type="radio" name="type" id="flower" class="filter__fieldset-input" value="flower" checked>
+          <label class="filter__fieldset-label" for="flower">
             <img src="./img/icon-filter-1.png" alt="цветы">
             Цветы</label>
 
           <input class="filter__fieldset-input" type="radio" name="
-          toys" id="item2" checked>
-          <label class="filter__fieldset-label filter__fieldset-label-img filter__fieldset-label-img2" for="item2">
+					type" id="toys" value="toys">
+          <label class="filter__fieldset-label" for="toys">
             <img src="./img/icon-filter-2.png" alt="игрушки">
             игрушки</label>
 
-          <input class="filter__fieldset-input" type="radio" id="item3" name="postcards">
-          <label class="filter__fieldset-label filter__fieldset-label-img filter__fieldset-label-img3" for="item3"> <img
-              src="./img/icon-filter-3.png" alt="игрушки">Открытки</label>
+          <input class="filter__fieldset-input" type="radio" id="postcard" name="type" value="postcard">
+          <label class="filter__fieldset-label" for="postcard">
+            <img src="./img/icon-filter-3.png" alt="игрушки">Открытки</label>
         </fiedset>
 
-        <div class="filter__buttons">
-          <button class="filter__buttons-bnt">Цена
-            <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="#2E3514" />
-            </svg>
-          </button>
-          <button class="filter__buttons-bnt">Тип товара
-            <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="#2E3514" />
-            </svg>
-          </button>
-        </div>
+        <fiedset class="filter__fieldset filter__fieldset-choices">
+          <div class="filter__choices choices">
+            <button class="filter__select choices__btn">Цена
+              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="currentColor" />
+              </svg>
+            </button>
+            <div class="choices__box">
+              <fiedset class="filter__fieldset">
+                <input class="filter__input-price" type="text" placeholder="от">
+                <input class="filter__input-price" type="text" placeholder="до">
+              </fiedset>
+            </div>
+          </div>
+
+          <div class="filter__choices choices">
+            <button class="filter__select choices__btn">Тип товара
+              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="currentColor" />
+              </svg>
+            </button>
+            <div class="choices__box">
+              <ul class="filter__type-list">
+                <li class="filter__type-item">
+                  <button class="filter__type-btn">Монобукеты</button>
+                </li>
+                <li class="filter__type-item">
+                  <button class="filter__type-btn">Авторские букеты</button>
+                </li>
+                <li class="filter__type-item">
+                  <button class="filter__type-btn">Цветы в коробке</button>
+                </li>
+                <li class="filter__type-item">
+                  <button class="filter__type-btn">Цветы в корзине</button>
+                </li>
+                <li class="filter__type-item">
+                  <button class="filter__type-btn">Букеты из сухоцветов</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </fiedset>
+      </div>
+    </section>
+
+    <section class="goods">
+      <div class="container goods__container">
+        <h2 class="goods__title">Цветы</h2>
+        <ul class="goods__list">
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-1.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data"> сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">3000 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-2.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data">сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">2000 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-3.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data">сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">2200 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-4.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data">сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">1600 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-5.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data">сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">2700 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <img src="./img/card-img-6.jpg" alt="Авторский букет" class="card__img">
+              <div class="card__content">
+                <h3 class="card__content-title">Авторский букет из роз, диантусов и сухоцветов</h3>
+                <p class="card__data">сегодня в 14:00</p>
+                <button class="card__button">
+                  <span class="card__price">1500 ₽</span>
+                  <span class="card__button-text">в корзину</span>
+                </button>
+              </div>
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
     <section class="subscription">
       <div class="container subscription__container">
         <h2 class="subscription__title">Подпишись на рассылку</h2>
         <form action="#" class="subscription__form">
-          <input type="search" class="subscription__form-input" name="search" placeholder="Букет из роз">
+          <input type="email" class="subscription__form-input" name="email" placeholder="E-mail">
           <button class="subscription__form-btn" type="submit">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
