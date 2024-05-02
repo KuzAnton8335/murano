@@ -1,0 +1,90 @@
+@use "../var" as *;
+@use "../fonts" as *;
+.footer {
+  padding: 80px 0;
+  background: $footer url("./img/figure.svg") no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  /* .footer__container */
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  /* .footer__img */
+
+  &__img {
+    width: 200px;
+  }
+
+  /* .footer__address */
+
+  &__address {
+    font-style: normal;
+  }
+
+  /* .footer__mail */
+
+  &__mail {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  /* .footer__social-list */
+
+  &__social-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* .footer__social-link */
+
+  &__social-link svg {
+    color: $orange;
+  }
+
+  /* .footer__developers */
+
+  // &__developers {
+  // }
+
+  /* .footer__developers-title */
+
+  &__developers-title {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  /* .footer__developers-list */
+
+  &__developers-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .footer__developers-item */
+
+  &__developers-item {
+    margin-bottom: 3px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // /* .footer__developers-link */
+
+  // &__developers-link {
+  // }
+
+  /* .footer__copyright */
+
+  &__copyright {
+    text-transform: uppercase;
+  }
+}
