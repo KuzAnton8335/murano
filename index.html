@@ -85,15 +85,16 @@
 
         <fiedset class="filter__fieldset filter__fieldset-choices">
           <div class="filter__choices choices">
-            <button class="filter__select choices__btn">Цена
+            <button class="filter__select choices__btn" type="button">Цена
               <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="currentColor" />
               </svg>
             </button>
-            <div class="choices__box filter__choices-box">
-              <fiedset class="filter__fieldset">
-                <input class="filter__input-price" type="text" placeholder="от">
-                <input class="filter__input-price" type="text" placeholder="до">
+
+            <div class="choices__box filter__choices-box choices__box-price">
+              <fiedset class="filter__fieldset  filter__fieldset-price">
+                <input class="filter__input-price" type="text" placeholder="от 400">
+                <input class="filter__input-price" type="text" placeholder="до 3000">
               </fiedset>
             </div>
           </div>
@@ -104,7 +105,7 @@
                 <path d="M4 0L7.4641 6H0.535898L4 0Z" fill="currentColor" />
               </svg>
             </button>
-            <div class="choices__box filter__choices-box">
+            <div class="choices__box filter__choices-box filter__choices-box-type">
               <ul class="filter__type-list">
                 <li class="filter__type-item">
                   <button class="filter__type-btn">Монобукеты</button>
@@ -235,7 +236,7 @@
     </section>
     <section class="subscription">
       <div class="container subscription__container">
-        <h2 class="subscription__title">Подпишись на рассылку</h2>
+        <h2 class="subscription__title">Подпишись на&nbsp;рассылку</h2>
         <form action="#" class="subscription__form">
           <input type="email" class="subscription__form-input" name="email" placeholder="E-mail">
           <button class="subscription__form-btn" type="submit">

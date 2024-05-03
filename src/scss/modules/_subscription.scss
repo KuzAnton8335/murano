@@ -1,8 +1,14 @@
 @use "../var" as *;
 @use "../fonts" as *;
+@use "../media" as *;
 .subscription {
   padding-top: 70px;
-  padding-bottom: 140px;
+  padding-bottom: 70px;
+
+  @include tablet {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   /* .subscription__container */
 
   &__container {
@@ -17,12 +23,16 @@
   &__title {
     font-family: $second-family;
     font-weight: 400;
-    font-size: clamp(3.125rem, 3.473rem + -1.74vw, 2rem);
+    font-size: clamp(2rem, 1.679rem + 1.61vw, 3.125rem);
     line-height: 1.2;
     text-transform: uppercase;
     text-align: center;
     color: $green;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      margin-bottom: 24px;
+    }
   }
 
   /* .subscription__form */
@@ -31,6 +41,10 @@
     width: 524px;
     height: 40px;
     position: relative;
+
+    @include mobail {
+      width: 100%;
+    }
   }
 
   /* .subscription__form-input */

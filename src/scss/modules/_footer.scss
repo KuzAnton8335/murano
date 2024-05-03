@@ -1,10 +1,21 @@
 @use "../var" as *;
 @use "../fonts" as *;
+@use "../media" as *;
 .footer {
+  margin-top: 70px;
   padding: 80px 0;
   background: $footer url("./img/figure.svg") no-repeat;
   background-position: bottom;
   background-size: contain;
+
+  @include laptop {
+    background-size: 1287px;
+  }
+
+  @include tablet {
+    margin-top: 50px;
+  }
+
   /* .footer__container */
 
   &__container {
@@ -12,6 +23,9 @@
     align-items: center;
     flex-direction: column;
     gap: 60px;
+    @include tablet {
+      gap: 40px;
+    }
   }
 
   /* .footer__img */
