@@ -1,21 +1,29 @@
 @use "../var" as *;
 @use "../fonts" as *;
+@use "../media" as *;
 
 .filter {
   padding: 60px 0;
   /* .filter__container */
 
+  @include mobail {
+    padding-top: 73px;
+    padding-bottom: 40px;
+  }
+
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 32px;
+    flex-wrap: wrap;
   }
 
   /* .filter__fieldset */
 
   &__fieldset {
     display: flex;
+    flex-wrap: wrap;
     border: 0;
     margin: 0;
     padding: 0;
@@ -32,9 +40,7 @@
   /* .filter__fieldset-label */
 
   &__fieldset-label {
-    min-width: 133px;
     height: 72px;
-    display: inline-block;
     border: none;
     font-family: $font-family;
     background-color: $white;
@@ -52,6 +58,20 @@
       background-color: $light-orange;
       color: $white;
     }
+
+    @include mobail {
+      padding: 10px 12px 10px 12px;
+      height: 40px;
+    }
+  }
+
+  &__fieldset-label img {
+    width: 40px;
+    height: 40px;
+    @include mobail {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   &__fieldset-input:focus-visible + &__fieldset-label {
@@ -66,8 +86,13 @@
 
   &__fieldset-choices {
     gap: 64px;
+    @include mobail {
+      gap: 40px;
+    }
   }
 
+  &__choices-box {
+  }
   /* .filter__choices */
 
   // &__choices {

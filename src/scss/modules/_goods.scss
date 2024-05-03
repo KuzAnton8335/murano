@@ -1,7 +1,11 @@
 @use "../var" as *;
 @use "../fonts" as *;
+@use "../media" as *;
 .goods {
   margin-bottom: 70px;
+  @include tablet {
+    margin-bottom: 50px;
+  }
 
   /* .goods__title */
 
@@ -14,16 +18,28 @@
     text-align: center;
     color: $green;
     margin-bottom: 40px;
+
+    @include tablet {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
   }
 
   /* .goods__list */
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 310px);
+    grid-template-columns: repeat(auto-fit, 310px);
+    max-width: 970px;
+    margin: 0 auto;
     justify-content: center;
     row-gap: 24px;
     column-gap: 20px;
+
+    @include mobail {
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+      column-gap: 12px;
+    }
   }
 
   /* .goods__item */

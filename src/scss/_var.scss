@@ -6,3 +6,11 @@ $light-orange: #f0a35b;
 $footer: #e9ece0;
 $bg: #f5f6f2;
 $pattern: #f4f8eb;
+
+@mixin responsive-font-size($min-size, $max-size, $min-screen, $max-screen) {
+  font-size: clamp(
+    #{$min-size}px,
+    calc(#{$max-size - $min-size} * ((100vw - #{$min-screen}px) / ($max-screen - $min-screen))),
+    #{$max-size}px
+  );
+}
