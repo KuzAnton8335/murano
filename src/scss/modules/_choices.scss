@@ -4,25 +4,29 @@
 .choices {
   /* .choices__btn */
 
-  &__btn {
+  &__btn.clicked.clicked .choices__icon {
+    transform: rotate(180deg);
+  }
+
+  &__icon {
+    transition: transform 0.3s ease-in-out;
   }
 
   /* .choices__box */
 
   &__box {
+    display: none;
+  }
+
+  &__box--active {
     display: block;
   }
 
   &__box-price {
     max-width: 276px;
-    margin-top: 24px;
-    width: 100%;
     background-color: $white;
     border-radius: 12px;
+    left: 50%;
     padding: 24px;
-
-    @include mobail {
-      max-width: 236px;
-    }
   }
 }

@@ -108,6 +108,10 @@
   }
 
   &__choices-box {
+    position: absolute;
+    top: calc(100% + 20px);
+    // top: 50%;
+    // transform: translate(-50%);
   }
   /* .filter__choices */
 
@@ -140,9 +144,8 @@
   }
 
   /* .filter__type-list */
-  &__choices-box-type {
-    margin-top: 24px;
-  }
+  // &__choices-box-type {
+  // }
   &__type-list {
     padding: 24px;
     background: $white;
@@ -168,6 +171,7 @@
 
   &__type-btn {
     font-size: 18px;
+    white-space: nowrap;
     @include mobail {
       font-size: 14px;
     }

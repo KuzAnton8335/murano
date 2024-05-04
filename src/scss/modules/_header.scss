@@ -1,10 +1,28 @@
 @use "../var" as *;
 @use "../media" as *;
+
+@keyframes slideDown {
+  to {
+    top: 0;
+  }
+}
+
 .header {
   padding: 32px 0;
 
   @include mobail {
     padding: 24px 0;
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    box-shadow: 0 4px 2px -2px $footer;
+    background-color: $footer;
+    animation: slideDown 0.3s ease-in-out;
   }
   /* .header__form */
 
