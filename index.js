@@ -77,8 +77,17 @@ choices.forEach((choice) => {
   window.addEventListener("resize", () => {
     adjustElemntPosition(box);
   })
-
 })
 
-
-
+// записываем кнопки для открытия карточки карзины
+const headerCartBtn = document.querySelector(".header__cart-btn");
+const cartClose = document.querySelector(".cart__close");
+const cart = document.querySelector(".cart");
+// открываем карзину при нажатии на кнопку
+headerCartBtn.addEventListener("click", () => {
+  cart.classList.toggle("cart_open");
+})
+// закрываем карзину при нажатии на кнопку
+cartClose.addEventListener("click", () => {
+  cart.classList.remove("cart_open");
+})

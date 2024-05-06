@@ -47,9 +47,19 @@
     background-color: $bg;
     border-radius: 32px;
     padding: 8.5px 16px;
-
+    border: none;
+    outline: none;
+    appearance: none;
     &::placeholder {
+      font-size: 18px;
       color: $dark;
+    }
+
+    @include mobail {
+      width: 80px;
+      &::placeholder {
+        font-size: 14px;
+      }
     }
   }
 
@@ -113,12 +123,6 @@
     // top: 50%;
     // transform: translate(-50%);
   }
-  /* .filter__choices */
-
-  // &__choices {
-  // }
-
-  /* .filter__select */
 
   &__select {
     display: flex;
@@ -126,26 +130,6 @@
     gap: 8px;
   }
 
-  /* .filter__input-price */
-
-  &__input-price {
-    border: none;
-    outline: none;
-    appearance: none;
-    &::placeholder {
-      font-size: 18px;
-    }
-
-    @include mobail {
-      &::placeholder {
-        font-size: 14px;
-      }
-    }
-  }
-
-  /* .filter__type-list */
-  // &__choices-box-type {
-  // }
   &__type-list {
     padding: 24px;
     background: $white;
@@ -155,6 +139,7 @@
 
     @include mobail {
       max-width: 185px;
+      padding: 16px;
     }
   }
 
@@ -176,6 +161,9 @@
       font-size: 14px;
     }
     &:hover {
+      color: $light-orange;
+    }
+    &--active {
       color: $orange;
     }
   }
