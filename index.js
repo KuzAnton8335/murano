@@ -54,10 +54,10 @@ const choices = document.querySelectorAll(".choices");
 let openChoice = null;
 // перебираем все элементы с классом choices
 choices.forEach((choice) => {
-  const Btn = choice.querySelector(".choices__btn");
-  const Box = choice.querySelector(".choices__box");
+  const btn = choice.querySelector(".choices__btn");
+  const box = choice.querySelector(".choices__box");
 
-  Btn.addEventListener("click", () => {
+  btn.addEventListener("click", () => {
     // проверяем, открыт ли уже какой-либо элемент
     if (openChoice !== null) {
       // закрываем предыдущий открытый элемент
@@ -66,16 +66,16 @@ choices.forEach((choice) => {
     }
 
     // открываем текущий элемент
-    Box.classList.toggle("choices__box--active");
-    Btn.classList.toggle("clicked");
-    adjustElemntPosition(Box);
+    box.classList.toggle("choices__box--active");
+    btn.classList.toggle("clicked");
+    adjustElemntPosition(box);
 
     // обновляем переменную открытого элемента
     openChoice = choice;
   })
 
   window.addEventListener("resize", () => {
-    adjustElemntPosition(Box);
+    adjustElemntPosition(box);
   })
 
 })
