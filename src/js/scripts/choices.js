@@ -29,6 +29,11 @@ export const initChoices = () => {
   // получаем все элементы с классом choices
   const choices = document.querySelectorAll(".choices");
 
+  // функция закрытия элементов выбора
+  const closeAllChoices = () => {
+
+  }
+
   // создаем переменную для отслеживания открытого элемента
   let openChoice = null;
   // перебираем все элементы с классом choices
@@ -56,5 +61,14 @@ export const initChoices = () => {
     window.addEventListener("resize", debounce(() => {
       adjustElemntPosition(box);
     }), 250)
+
+    // закрываем все открытые элементы при клике вне них
+    document.addEventListener("click", ({ target }) => {
+      let clickInside = target.closest(".choices");
+      if (!clickInside) {
+        choices.forEach(choice => choice.querySelector(".choices__box").classList.remove("choices__box--active"));
+        choices.forEach(choice => choice.querySelector(".choices__btn").classList.remove("clicked"));
+      }
+    })
   })
 }

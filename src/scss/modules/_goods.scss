@@ -15,6 +15,11 @@
     gap: 20px;
   }
 
+  &__box {
+    flex-grow: 1;
+    max-width: 970px;
+  }
+
   /* .goods__title */
 
   &__title {
@@ -38,7 +43,6 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 310px);
-    max-width: 970px;
     margin: 0 auto;
     justify-content: center;
     row-gap: 24px;
