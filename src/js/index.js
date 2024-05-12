@@ -6,6 +6,7 @@ import { initChoicesType } from "./scripts/choicesType.js";
 import { filterProducts } from "./scripts/filterProducts.js";
 import { initHeaderFixed } from "./scripts/headerFixed.js";
 import { renderProducts } from "./scripts/renderProducts.js";
+import { initSearchProducts } from "./scripts/searchProducts.js";
 
 
 
@@ -14,6 +15,7 @@ const init = () => {
   initChoices();
   initChoicesType();
   initCart();
+  initSearchProducts();
   renderProducts();
   filterProducts();
 }

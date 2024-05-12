@@ -54,6 +54,13 @@
     }
   }
 
+  &__no-products {
+    text-align: center;
+    font-size: 24px;
+    color: $green;
+    grid-column: 1 / -1;
+  }
+
   /* .goods__item */
 
   // &__item {

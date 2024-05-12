@@ -1,9 +1,11 @@
 import { fetchProducts } from "./api.js";
 import { debounce } from "./debaunce.js";
+import { callBackWithPreload } from "./preload.js";
 
 export const filterProducts = () => {
   const filterForm = document.querySelector(".filter__form");
   const goodsTitle = document.querySelector(".goods__title");
+  const goodsSection = document.querySelector(".goods");
 
   // получение типа typa
   const applyFilters = () => {
@@ -19,6 +21,8 @@ export const filterProducts = () => {
     if (maxPrice) params.maxPrice = maxPrice;
     // отправляем запрос на сервер
     fetchProducts(params)
+    // вызов функции с прелоадером
+    callBackWithPreload(goodsSection, fetchProducts, params);
   }
   // вызов разово
   applyFilters();

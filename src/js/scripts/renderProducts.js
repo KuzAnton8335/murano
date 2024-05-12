@@ -11,6 +11,14 @@ export const renderProducts = async () => {
     // очищаем список карточек
     goodsList.innerHTML = "";
 
+    if (!products.length) {
+      const messageItem = document.createElement("li");
+      messageItem.textContent = "Товары не найдены";
+      messageItem.classList.add("goods__no-products");
+      goodsList.append(messageItem);
+      return;
+    }
+
     // перебираем все карточки
     products.forEach(product => {
       const productCard = ProductCard(product);
