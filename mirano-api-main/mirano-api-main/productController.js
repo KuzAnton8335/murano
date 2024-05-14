@@ -1,4 +1,3 @@
-// productController.js
 import { loadData } from './dataService.js';
 import {
   filterBySearch,
@@ -12,8 +11,13 @@ const setupProductRoutes = app => {
       const data = await loadData();
       const { type, minPrice, maxPrice, search, list, category } = req.query;
       const allProducts = [].concat(...Object.values(data));
-      const min = parseInt(minPrice) || 0;
-      const max = parseInt(maxPrice) || Number.MAX_SAFE_INTEGER;
+
+      if ((minPrice || maxPrice || category) && !type) {
+        return res.status(400).json({
+          error:
+            "Parameters 'minPrice', 'maxPrice', 'category' require 'type' to be specified",
+        });
+      }
 
       if (list) {
         const idList = list.split(',').map(Number);
@@ -23,8 +27,8 @@ const setupProductRoutes = app => {
 
       if (search) {
         console.log('Search query:', search);
-
         const filteredProducts = filterBySearch(allProducts, search);
+        console.log('filteredProducts: ', filteredProducts);
         return res.json(filteredProducts);
       }
 
@@ -33,12 +37,15 @@ const setupProductRoutes = app => {
         if (!products) {
           return res.status(400).json({ error: 'Invalid type parameter' });
         }
+        const min = parseInt(minPrice) || 0;
+        const max = parseInt(maxPrice) || Number.MAX_SAFE_INTEGER;
         const filteredProducts = filterByCriteria(products, min, max, category);
         return res.json(filteredProducts);
       }
 
       res.json(allProducts);
     } catch (err) {
+      console.error('Server error:', err);
       res.status(500).json({ error: 'Failed to process request' });
     }
   });

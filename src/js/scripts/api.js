@@ -1,6 +1,6 @@
-import { store } from "./Store.js";
 // получения адреса API
 export const API_URL = " http://localhost:3000";
+import { productStore } from "./Store.js";
 
 // формирование строки запроса
 const formatQueryString = params => {
@@ -26,7 +26,7 @@ export const fetchProducts = async (params = {}) => {
     // получаем данные от API и записываем в переменную
     const products = await response.json();
     // возвращаем данные
-    store.setProducts(products);
+    productStore.setProducts(products);
 
   } catch (error) {
     console.error(`"Ошибка при запросе данных:", ${error}`);

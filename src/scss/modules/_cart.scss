@@ -30,7 +30,8 @@
   &__container {
     border-radius: 32px;
     padding: 24px 16px;
-    max-width: 310px;
+    max-width: 100%;
+    width: 310px;
     min-height: 778px;
     background: $white;
     display: flex;
@@ -41,8 +42,8 @@
     }
 
     @include mobail {
-      min-height: auto;
-      max-width: 292px;
+      min-height: 350px;
+      width: 292px;
     }
   }
 

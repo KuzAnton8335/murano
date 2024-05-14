@@ -1,8 +1,7 @@
+import { API_URL } from "./api.js";
 class Store {
   constructor() {
     this.observers = [];
-    this.products = [];
-    this.categories = new Set();
   }
 
   // метод для добавления нового наблюдателя
@@ -13,6 +12,15 @@ class Store {
   notifyObservers() {
     this.observers.forEach(observer => observer());
   }
+}
+
+class ProductStore extends Store {
+  constructor() {
+    super();
+    this.products = [];
+    this.categories = new Set();
+  }
+
   // добавление новых продуктов
   getProducts() {
     return this.products;
@@ -40,5 +48,98 @@ class Store {
   }
 }
 
-export const store = new Store();
+class CartStore extends Store {
+  // конструктор добавления новой записи для корзины
+  constructor() {
+    super();
+    this.cart = [];
+  }
+  // регестрация новой записи на сервере и передача данных для корзины
+  async init() {
+    await this.registerCart();
+    await this.fetcCart();
+  }
 
+
+  async registerCart() {
+    try {
+      // получаем ответ с сервера
+      const response = await fetch(`${API_URL}/api/cart/register`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+      // проверка запроса к серверу
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      // ошибка запроса к серверу
+    } catch (error) {
+      console.error(error)
+    }
+
+  }
+  // метод добаавления в корзину
+  getCart() {
+    return this.cart;
+  }
+  // метод записи корзины в базу данных на сервере
+  async fetcCart() {
+    try {
+      // отправляем запрос
+      const response = await fetch(`${API_URL}/api/cart`, {
+        method: 'GET',
+        credentials: 'include',
+      });
+      // проверка запроса к серверу
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      // получаем данные от API и записываем в переменную
+      const data = await response.json();
+      // запись данных в корзину
+      this.cart = data;
+      // оповещение что мы записали данные
+      this.notifyObservers();
+
+      // ошибка запроса к серверу
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async postCart({ id, quantity }) {
+    try {
+      // получаем ответ с сервера
+      const response = await fetch(`${API_URL}/api/cart/items`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productId: id, quantity })
+      });
+      // проверка запроса к серверу
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      // получаем данные от API и записываем в переменную
+      const data = await response.json();
+      // запись данных в корзину
+      this.cart = data;
+      // оповещение что мы записали данные
+      this.notifyObservers();
+
+      // ошибка запроса к серверу
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  // добавления продукта в корзину
+  async addProductCart(id) {
+    await this.postCart({ id, quantity: 1 });
+  }
+}
+
+
+export const productStore = new ProductStore();
+export const cartStore = new CartStore();

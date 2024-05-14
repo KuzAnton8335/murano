@@ -1,13 +1,21 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { setupProductRoutes } from './productController.js';
 import { setupOrderRoutes } from './orderController.js';
+import { setupCartRoutes } from './cartController.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5173', // Замените на URL вашего фронтенда
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 app.use('/img', express.static('img'));
 
 app.use((req, res, next) => {
@@ -17,6 +25,7 @@ app.use((req, res, next) => {
 
 setupProductRoutes(app);
 setupOrderRoutes(app);
+setupCartRoutes(app);
 
 app.listen(PORT, () => {
   console.log(`Server is running http://localhost:${PORT}`);
