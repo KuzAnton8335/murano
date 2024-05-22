@@ -198,5 +198,23 @@
     padding: 8px 16px 8px 16px;
     color: $white;
     background: $light-orange;
+    outline: 1px solid transparent;
+    transition:
+      background-color 0.3s ease-in-out,
+      outline-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    &:focus-visible {
+      background-color: $orange;
+      outline-color: $light-orange;
+    }
+
+    &:disabled {
+      background-color: $light-orange;
+      opacity: 0.4;
+    }
   }
 }

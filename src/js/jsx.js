@@ -1,7 +1,6 @@
 // функция вызова jsx
 export default function jsx(tag, attributes = {}, ...children) {
-  // console.log(tag, attributes, children);
-
+  attributes = attributes || {};
   // если tag - функция принимает аргументы
   if (typeof tag === 'function') {
     return tag(attributes, ...children);
@@ -10,7 +9,7 @@ export default function jsx(tag, attributes = {}, ...children) {
   const element = document.createElement(tag);
   Object.entries(attributes).forEach(([key, value]) => {
     if (key === 'class') {
-      element.classList.add(...value.split(' '));
+      element.classList.add(...value.trim().split(' '));
     } else if (key.startsWith('on') && key.toLowerCase() in window) {
       element.addEventListener(key.toLowerCase().substring(2), value);
     } else if (key === 'style' && value === "object") {

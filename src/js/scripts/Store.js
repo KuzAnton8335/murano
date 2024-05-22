@@ -107,6 +107,7 @@ class CartStore extends Store {
     }
   }
 
+  // постим картщчку на сервере
   async postCart({ id, quantity }) {
     try {
       // получаем ответ с сервера
@@ -137,6 +138,12 @@ class CartStore extends Store {
   // добавления продукта в корзину
   async addProductCart(id) {
     await this.postCart({ id, quantity: 1 });
+  }
+
+  // очистка корзины
+  clearCart() {
+    this.cart = [];
+    this.notifyObservers();
   }
 }
 

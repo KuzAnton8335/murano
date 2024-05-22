@@ -5,6 +5,7 @@ import { renderCart } from "./renderCart";
 const headerCartBtn = document.querySelector(".header__cart-btn");
 const cartClose = document.querySelector(".cart__close");
 const cart = document.querySelector(".cart");
+const cartPriceTotal = document.querySelector(".cart__price-total");
 
 const toggleCart = () => {
   cart.classList.toggle("cart_open");
@@ -28,7 +29,11 @@ export const initCart = async () => {
   renderCart();
   // Запись при нажатии кнопки в корзину
   cartStore.subscribe(() => {
-    headerCartBtn.textContent = cartStore.getCart().length;
+    const cart = cartStore.getCart();
+    headerCartBtn.textContent = cart.length;
+
+    const totalPriceValue = cart.reduce((acc, product) => acc + product.price * product.quantity, 0,);
+    cartPriceTotal.innerHTML = `${totalPriceValue}&nbsp;₽`;
   })
 
   // закрываем карзину при нажатии на кнопку
